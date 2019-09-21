@@ -8,7 +8,7 @@
     "start": "node .",
     "start_only_client": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +36,8 @@
     "babel-preset-react": "^6.24.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "jest": "^24.9.0",
+    "jest-html-reporter": "^2.6.0",
     "npm": "^6.11.3",
     "path": "^0.12.7",
     "react": "^16.9.0",
@@ -43,5 +45,31 @@
     "react-pose": "^4.0.8",
     "webpack-dev-middleware": "^3.7.1",
     "webpack-hot-middleware": "^2.25.0"
+  },
+  "jest": {
+    "transform": {},
+    "testRegex": "\\.test\\.js",
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "node_modules"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "cobertura"
+    ],
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Reports",
+          "outputPath": "./app-test-report.html",
+          "includeFailureMsg": true,
+          "includeConsoleLog": false
+        }
+      ]
+    ]
   }
 }

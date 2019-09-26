@@ -26,3 +26,6 @@ Server and client are running on the same host using webpack on 3001<br/>
 http://localhost:3001<br/><br/>
 
 Make sure port is available in your pc before <b>npm start</b><br/>
+
+Run Test Before doing UI Test<br/>
+<b>npm test</b><br/>

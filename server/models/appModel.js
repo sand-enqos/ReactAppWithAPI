@@ -13,8 +13,7 @@ Task.createTask = function (newTask, result) {
         if (err) {
             console.log("error: ", err);
             result(err, null);
-        }
-        else {
+        } else {
             console.log(res.insertId);
             result(null, res.insertId);
         }
@@ -47,7 +46,7 @@ Task.getAllTask = function (result) {
     });
 };
 Task.updateById = function (id, task, result) {
-    sql.query("UPDATE tasks SET task = ? WHERE id = ?", [task.task, id], function (err, res) {
+    sql.query("UPDATE tasks SET ? WHERE id = ?", [task, id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);

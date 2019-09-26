@@ -16,23 +16,19 @@ exports.list_all_tasks = function(req, res) {
 
 
 exports.create_a_task = function(req, res) {
-  var new_task = new Task(req.body);
 
-  //handles null error 
-   if(!new_task.task || !new_task.status){
+  let body = req.body;
+  let new_task = {
+    "Name" : body.Name,
+    "Type" : body.Type,
+    "Favorite": body.Favorite,
+  };
 
-            res.status(400).send({ error:true, message: 'Please provide task/status' });
-
-        }
-else{
-  
   Task.createTask(new_task, function(err, task) {
-    
     if (err)
       res.send(err);
     res.json(task);
   });
-}
 };
 
 
@@ -46,7 +42,13 @@ exports.read_a_task = function(req, res) {
 
 
 exports.update_a_task = function(req, res) {
-  Task.updateById(req.params.taskId, new Task(req.body), function(err, task) {
+  let body = req.body;
+  let new_task = {
+    "Name" : body.Name,
+    "Type" : body.Type,
+    "Favorite": body.Favorite,
+  };
+  Task.updateById(req.params.taskId, new_task , function(err, task) {
     if (err)
       res.send(err);
     res.json(task);

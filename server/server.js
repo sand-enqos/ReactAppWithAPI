@@ -9,8 +9,8 @@ var compiler = webpack(config);
 const path = require('path');
 
 const app = express();
-// app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-// app.use(webpackHotMiddleware(compiler));
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+app.use(webpackHotMiddleware(compiler));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(pino);

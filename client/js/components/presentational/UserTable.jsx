@@ -82,9 +82,9 @@ class UserTable extends Component {
     // let girdData = this.state.girdData.filter((user) => {
     //     return selectedUser.id !== user.id;
     // });  
-    // this.setState({girdData, mode: ''});
     await axios.delete(`${TASKS}/${selectedUser.id}`); 
     this.getAllUser();
+    this.setState({girdData, mode: ''});
   }
   
 
@@ -115,7 +115,7 @@ class UserTable extends Component {
     //   user.editMode = false;
     //   return user;
     // });
-    // this.setState({girdData, mode: ''});
+    this.setState({girdData, mode: ''});
   }
 
 
